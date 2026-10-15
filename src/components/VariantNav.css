@@ -1,0 +1,51 @@
+.variants {
+  cursor: none;
+}
+
+.variants.awake {
+  cursor: auto;
+}
+
+.variant-nav {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  translate: -50% 8px;
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--tick);
+  border-radius: 999px;
+  background: rgb(0 0 0 / 0.7);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease, translate 300ms ease;
+  z-index: 10;
+}
+
+.variants.awake .variant-nav,
+.variant-nav:focus-within {
+  opacity: 1;
+  translate: -50% 0;
+  pointer-events: auto;
+}
+
+.variant-nav a {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 200ms ease, background 200ms ease;
+}
+
+.variant-nav a:hover {
+  color: var(--fg);
+}
+
+.variant-nav a.active {
+  color: var(--bg);
+  background: var(--fg);
+}

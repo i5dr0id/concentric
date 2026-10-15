@@ -1,0 +1,71 @@
+.centered-dial {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.centered-dial .dial {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: 0;
+  height: 0;
+}
+
+/* A 1000px box centered on the dial so the fade mask can pivot around it. */
+.centered-dial .rings {
+  position: absolute;
+  left: -500px;
+  top: -500px;
+  width: 1000px;
+  height: 1000px;
+  /* Brightest on the 3 o'clock reading line, dimmest opposite it. */
+  mask-image: conic-gradient(
+    from 0deg at 50% 50%,
+    rgb(0 0 0 / 0.4) 0deg,
+    #000 65deg,
+    #000 115deg,
+    rgb(0 0 0 / 0.4) 180deg,
+    rgb(0 0 0 / 0.15) 270deg,
+    rgb(0 0 0 / 0.4) 360deg
+  );
+}
+
+.centered-dial .ring {
+  left: 500px;
+  top: 500px;
+}
+
+.centered-dial .hour {
+  position: absolute;
+  left: 0;
+  top: 0;
+  translate: -50% -50%;
+  font-size: 120px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.centered-dial .date {
+  position: absolute;
+  left: 50%;
+  bottom: 5vh;
+  translate: -50% 0;
+  display: flex;
+  gap: 1em;
+  font-size: clamp(14px, 1.2vw, 24px);
+  letter-spacing: 0.24em;
+  color: var(--fg-soft);
+  white-space: nowrap;
+}
+
+.centered-dial .weekday {
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.centered-dial .dot {
+  color: var(--muted);
+}

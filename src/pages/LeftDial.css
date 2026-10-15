@@ -1,0 +1,71 @@
+.left-dial {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* Origin of every ring: the dial center, at the left screen edge so the edge
+   cuts the rings off where they fade. */
+.left-dial .dial {
+  position: absolute;
+  left: 1.5vw;
+  top: 50%;
+  width: 0;
+  height: 0;
+}
+
+/* A 1000px box centered on the dial so the fade mask can pivot around it. */
+.left-dial .rings {
+  position: absolute;
+  left: -500px;
+  top: -500px;
+  width: 1000px;
+  height: 1000px;
+  /* Fade the rings out as they curve away from the 3 o'clock reading line. */
+  mask-image: conic-gradient(
+    from 0deg at 50% 50%,
+    rgb(0 0 0 / 0.25) 0deg,
+    #000 60deg,
+    #000 120deg,
+    rgb(0 0 0 / 0.25) 180deg,
+    transparent 205deg,
+    transparent 335deg,
+    rgb(0 0 0 / 0.25) 360deg
+  );
+}
+
+.left-dial .ring {
+  left: 500px;
+  top: 500px;
+}
+
+.left-dial .hour {
+  position: absolute;
+  left: 3px;
+  top: 0;
+  translate: 0 -50%;
+  font-size: 108px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.left-dial .date {
+  position: absolute;
+  left: 75%;
+  top: 50%;
+  translate: -50% -50%;
+  text-align: center;
+  font-size: clamp(16px, 1.4vw, 28px);
+  letter-spacing: 0.22em;
+  color: var(--fg-soft);
+  white-space: nowrap;
+}
+
+.left-dial .weekday {
+  margin-top: 0.9em;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  color: var(--fg);
+}

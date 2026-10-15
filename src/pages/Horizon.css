@@ -1,0 +1,77 @@
+.horizon {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.horizon .date {
+  position: absolute;
+  left: 50%;
+  top: 11vh;
+  translate: -50% 0;
+  display: flex;
+  gap: 1em;
+  font-size: clamp(14px, 1.15vw, 24px);
+  letter-spacing: 0.26em;
+  color: var(--fg-soft);
+  white-space: nowrap;
+}
+
+.horizon .weekday {
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.horizon .dot {
+  color: var(--muted);
+}
+
+.horizon .hour {
+  position: absolute;
+  left: 50%;
+  top: 37vh;
+  translate: -50% -50%;
+  line-height: 1;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Fade the arcs out toward both sides and the bottom of the screen. */
+.horizon .rings {
+  position: absolute;
+  inset: 0;
+  mask-image:
+    linear-gradient(to right, transparent, #000 30%, #000 70%, transparent),
+    linear-gradient(to bottom, #000 70%, transparent);
+  mask-composite: intersect;
+}
+
+.horizon .dial {
+  position: absolute;
+  left: 50%;
+  width: 0;
+  height: 0;
+}
+
+.horizon .minutes {
+  --label-size: 34px;
+  --active-scale: 1.7;
+}
+
+.horizon .seconds {
+  --label-size: 24px;
+}
+
+/* Thin marker under the reading point, through both arcs. */
+.horizon .marker {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  width: 1px;
+  height: 18vh;
+  translate: 0 4vh;
+  background: linear-gradient(to bottom, var(--fg-soft), transparent);
+  opacity: 0.5;
+}

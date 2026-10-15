@@ -1,0 +1,136 @@
+.panel-dial {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.panel-dial .dial {
+  position: absolute;
+  left: 1.5vw;
+  top: 50%;
+  width: 0;
+  height: 0;
+}
+
+/* A 1000px box centered on the dial so the fade mask can pivot around it. */
+.panel-dial .rings {
+  position: absolute;
+  left: -500px;
+  top: -500px;
+  width: 1000px;
+  height: 1000px;
+  mask-image: conic-gradient(
+    from 0deg at 50% 50%,
+    rgb(0 0 0 / 0.25) 0deg,
+    #000 60deg,
+    #000 120deg,
+    rgb(0 0 0 / 0.25) 180deg,
+    transparent 205deg,
+    transparent 335deg,
+    rgb(0 0 0 / 0.25) 360deg
+  );
+}
+
+.panel-dial .ring {
+  left: 500px;
+  top: 500px;
+}
+
+.panel-dial .hour {
+  position: absolute;
+  left: 3px;
+  top: 0;
+  translate: 0 -50%;
+  font-size: 108px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.panel-dial .panel {
+  position: absolute;
+  left: 58%;
+  top: 50%;
+  translate: 0 -50%;
+  width: min(32vw, 520px);
+  font-size: clamp(12px, 0.95vw, 18px);
+  color: var(--fg-soft);
+}
+
+.panel-dial .weekday {
+  font-size: 5.2em;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+}
+
+.panel-dial .full-date {
+  margin-top: 0.8em;
+  font-size: 1.6em;
+  font-weight: 300;
+  color: var(--muted);
+}
+
+.panel-dial .calendar {
+  margin-top: 3.5em;
+}
+
+.panel-dial .calendar-title,
+.panel-dial .progress-row > span:first-child {
+  letter-spacing: 0.26em;
+  color: var(--muted);
+}
+
+.panel-dial .calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 0.9em;
+  margin-top: 1.4em;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.panel-dial .calendar-head {
+  color: var(--muted);
+}
+
+.panel-dial .calendar-grid .today {
+  color: var(--bg);
+  background: var(--fg);
+  border-radius: 999px;
+  margin: -0.35em 0.6em;
+  padding: 0.35em 0;
+}
+
+.panel-dial .progress {
+  display: grid;
+  gap: 1.1em;
+  margin-top: 3.5em;
+}
+
+.panel-dial .progress-row {
+  display: grid;
+  grid-template-columns: 5em 1fr 4.5em;
+  align-items: center;
+  gap: 1em;
+  font-variant-numeric: tabular-nums;
+}
+
+.panel-dial .progress-row > span:last-child {
+  text-align: right;
+}
+
+.panel-dial .bar {
+  height: 2px;
+  background: var(--tick);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.panel-dial .bar > div {
+  height: 100%;
+  background: var(--fg);
+  transition: width 900ms ease;
+}
