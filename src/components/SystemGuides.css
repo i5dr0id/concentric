@@ -1,0 +1,49 @@
+/* Regions measured from macOS lock screen screenshots, as % of the screen. */
+.system-guides {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.system-guides .guide {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border: 1.5px dashed rgb(255 255 255 / 0.6);
+  border-radius: 12px;
+  font: 12px/1 system-ui, sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.85);
+  background: rgb(255 255 255 / 0.06);
+}
+
+.system-guides .guide-clock {
+  left: 37.5%;
+  top: 8.5%;
+  width: 25%;
+  height: 16.5%;
+}
+
+.system-guides .guide-login {
+  left: 37%;
+  top: 75%;
+  width: 26%;
+  height: 20.5%;
+}
+
+.system-guides .guide-notification {
+  right: 1%;
+  top: 5%;
+  width: 23%;
+  height: 6%;
+}
+
+.system-guides .guide-status {
+  right: 0.5%;
+  top: 0.4%;
+  width: 10%;
+  height: 2.6%;
+  border-radius: 6px;
+}

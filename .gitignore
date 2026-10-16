@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local-only assets (Apple system font, personal wallpaper) - not for redistribution
+public/local
+dist-saver

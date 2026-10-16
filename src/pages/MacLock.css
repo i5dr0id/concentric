@@ -1,0 +1,92 @@
+/* Colors sampled from the macOS lock screen over this wallpaper. */
+.mac-lock {
+  --fg: #6fd5bb;
+  --muted: rgb(111 213 187 / 0.6);
+  --tick: rgb(36 16 30 / 0.5);
+  --tick-major: rgb(36 16 30 / 0.9);
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  color: var(--fg);
+  /* Same fill as macOS: cover the screen, centered. */
+  background: #2f7a6b var(--wallpaper) center / cover no-repeat;
+  font-family: 'SF Stencil Numeric', 'SF Pro Display', system-ui, sans-serif;
+}
+
+/* Dial on the right edge, in the open sky between the macOS clock above and
+   the password field below; the reading line points left. */
+.mac-lock .dial {
+  position: absolute;
+  right: 1.5vw;
+  top: 47%;
+  width: 0;
+  height: 0;
+}
+
+.mac-lock .rings {
+  position: absolute;
+  left: -500px;
+  top: -500px;
+  width: 1000px;
+  height: 1000px;
+  mask-image: conic-gradient(
+    from 0deg at 50% 50%,
+    rgb(0 0 0 / 0.2) 0deg,
+    transparent 25deg,
+    transparent 155deg,
+    rgb(0 0 0 / 0.2) 180deg,
+    #000 240deg,
+    #000 300deg,
+    rgb(0 0 0 / 0.2) 360deg
+  );
+}
+
+.mac-lock .ring {
+  left: 500px;
+  top: 500px;
+  --label-size: 24px;
+}
+
+.mac-lock .ring .ticks line {
+  stroke-width: 2.2;
+}
+
+.mac-lock .ring .label > span {
+  font-variation-settings: 'wght' 560;
+}
+
+.mac-lock .hour {
+  position: absolute;
+  right: 3px;
+  top: 0;
+  translate: 0 -50%;
+  font-size: 112px;
+  line-height: 1;
+  font-variation-settings: 'wght' 560;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Left variant: dial on the left edge over the pole, reading line pointing
+   right, mirrored from the right-edge layout above. */
+.mac-lock.left .dial {
+  left: 1.5vw;
+  right: auto;
+}
+
+.mac-lock.left .rings {
+  mask-image: conic-gradient(
+    from 0deg at 50% 50%,
+    rgb(0 0 0 / 0.2) 0deg,
+    #000 60deg,
+    #000 120deg,
+    rgb(0 0 0 / 0.2) 180deg,
+    transparent 205deg,
+    transparent 335deg,
+    rgb(0 0 0 / 0.2) 360deg
+  );
+}
+
+.mac-lock.left .hour {
+  left: 3px;
+  right: auto;
+}

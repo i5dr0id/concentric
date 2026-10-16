@@ -24,3 +24,9 @@ body { margin: 0; }
   text-align: center;
 }
 .not-found a { color: var(--fg-soft); }
+
+/* Hosted as a wallpaper or screen saver: nothing to point at. */
+.standalone,
+.standalone body {
+  cursor: none;
+}

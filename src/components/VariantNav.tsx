@@ -7,6 +7,9 @@ const VARIANTS = [
   { to: '/centered', label: 'Centered' },
   { to: '/horizon', label: 'Horizon' },
   { to: '/panel', label: 'Panel' },
+  { to: '/lockscreen', label: 'Lock screen' },
+  { to: '/mac', label: 'Mac' },
+  { to: '/mac-left', label: 'Mac left' },
 ]
 const IDLE_MS = 2500
 

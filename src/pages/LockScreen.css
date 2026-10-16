@@ -1,0 +1,91 @@
+/* Palette sampled from the lock screen wallpaper. */
+.lock-screen {
+  --bg: #2f7a6b;
+  --fg: #74dcc1;
+  --muted: rgb(186 236 220 / 0.55);
+  --tick: rgb(42 20 36 / 0.45);
+  --tick-major: rgb(42 20 36 / 0.85);
+  --balloon: #d23c22;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+/* Faint paper grain, like the illustration's texture. */
+.lock-screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Dial center on the right screen edge; the reading line points left. */
+.lock-screen .dial {
+  position: absolute;
+  right: 1.5vw;
+  top: 52%;
+  width: 0;
+  height: 0;
+}
+
+.lock-screen .rings {
+  position: absolute;
+  left: -500px;
+  top: -500px;
+  width: 1000px;
+  height: 1000px;
+  /* Brightest along the 9 o'clock reading line, fading toward top and bottom. */
+  mask-image: conic-gradient(
+    from 0deg at 50% 50%,
+    rgb(0 0 0 / 0.25) 0deg,
+    transparent 25deg,
+    transparent 155deg,
+    rgb(0 0 0 / 0.25) 180deg,
+    #000 240deg,
+    #000 300deg,
+    rgb(0 0 0 / 0.25) 360deg
+  );
+}
+
+.lock-screen .ring {
+  left: 500px;
+  top: 500px;
+}
+
+.lock-screen .ring .ticks line {
+  stroke-width: 2;
+}
+
+.lock-screen .ring .label > span {
+  font-weight: 500;
+}
+
+/* A small balloon-red dot marking the reading line. */
+.lock-screen .marker {
+  position: absolute;
+  left: -312px;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: var(--balloon);
+  box-shadow: 0 0 0 4px rgb(210 60 34 / 0.2);
+}
+
+.lock-screen .hour {
+  position: absolute;
+  right: 3px;
+  top: 0;
+  translate: 0 -50%;
+  font-size: 108px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
