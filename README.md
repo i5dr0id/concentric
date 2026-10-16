@@ -36,8 +36,9 @@ npm run build:saver   # -> dist-saver/saver.html
 ```
 
 A single page with relative paths and no router, for hosts that load it from disk,
-such as [wally-mac](https://github.com/i5dr0id/wally-mac)'s desktop layer and its
-WallyClock screen saver. Choose the layout with `?page=` (`mac-left` by default;
+such as [wally-mac](https://github.com/i5dr0id/wally-mac)'s desktop layer. (Wally's
+WallyClock screen saver draws the mac-left layout natively and only reuses the
+font and wallpaper from `public/local`.) Choose the layout with `?page=` (`mac-left` by default;
 also `left-edge`, `centered`, `horizon`, `panel`, `lockscreen`, `mac`).
 
 ## Development
